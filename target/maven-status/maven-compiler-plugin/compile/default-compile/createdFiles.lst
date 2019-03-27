@@ -1,3 +1,2 @@
-com/project6/web/controller/WelcomeController.class
-com/project6/web/config/SpringConfig.class
-com/project6/web/App.class
+com/project6/web/Main.class
+com/project6/web/controller/HomeController.class
