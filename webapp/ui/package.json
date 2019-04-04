@@ -2,11 +2,12 @@
   "name": "ui",
   "version": "1.0.0",
   "description": "ui project ibta 6",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "webpack-dev-server --watch-poll",
+    "build": "webpack -p"
   },
-  "author": "",
+  "author": "Aurelio Gualda",
   "license": "ISC",
   "dependencies": {
     "react": "^16.8.5",
@@ -27,6 +28,7 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0"
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
   }
 }
