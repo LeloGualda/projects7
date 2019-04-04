@@ -1,15 +1,13 @@
-var path = require('path');
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const package = require('./package.json')
 
-console.log(__dirname)
 module.exports = {
-    entry: './src/index.js',
-    devtool: 'sourcemaps',
-    cache: true,
-    mode: 'development',
+    entry: package.main,
     output: {
-        path: __dirname,
-        filename: '../../src/main/resources/static/built/bundle.js'
+        path: path.resolve(__dirname,"../../src/main/resources/static/public/"),
+        filename: 'ui.js',
+        publicPath: "/public"
     },
     module: {
         rules: [
@@ -25,5 +23,26 @@ module.exports = {
                 ]
             }
         ]
+    },
+    devServer: {
+        port: 8084,
+        inline: true,
+        publicPath:"http://localhost:8080/public",
+        historyApiFallback: true,
+        overlay: true,
+        proxy: {
+            "*": {
+                target: 'http://localhost:8080',
+                ws: false, /// auto update
+                onProxyReq: function (proxyReq) {
+                    proxyReq.setHeader('Accept-Encoding', '') // disable gzip
+                },
+                bypass: function (req, res, proxyOptions) {
+                    if (req.originalUrl === '/public/ui.js') {                 
+                        return '/ui.js';
+                    }                    
+                }
+            }
+        }        
     }
 }
