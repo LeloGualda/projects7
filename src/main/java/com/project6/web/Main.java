@@ -18,10 +18,6 @@ package com.project6.web;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * @author Greg Turnquist
- */
-// tag::code[]
 @SpringBootApplication
 public class Main {
 
@@ -29,4 +25,3 @@ public class Main {
 		SpringApplication.run(Main.class, args);
 	}
 }
-// end::code[]

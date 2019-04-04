@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
+
 public class HomeController {
 
    private final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -14,5 +15,7 @@ public class HomeController {
     public String index() {
         return "index";
     }
+
+
 
 }
